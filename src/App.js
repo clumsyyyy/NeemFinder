@@ -1,26 +1,17 @@
-import './App.css';
-import './loadData.js';
-import './displayData.js';
+import "./App.css";
+import "./loadData.js";
+import "./components/displayData.js";
+import Search from "./components/Search";
+
 function App() {
   return (
-    <div class = "App">
-      <div class = "banner">
-        <div class = "textBox">
-          <h1>NIMFinder</h1>
-          <p>but not really</p>
-        </div>
-        <input type = 'text' id = "queryInput" placeholder = "Type NIM...."></input>
-        <input type = 'button' id = "searchButton" value = "Find..."></input>
-      </div>
-      <div class = "results">
+    <div className="App">
+      <Search />
+      <div className="results">
         <h1>Menggila</h1>
-        <div class = "NIM">
-        
-        </div>
+        <div className="NIM"></div>
       </div>
     </div>
-
-    
   );
 }
 
