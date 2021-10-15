@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# Neemfinder
+
+Proyekan buat program _internship_ CTO IIT HMIF ITB
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
