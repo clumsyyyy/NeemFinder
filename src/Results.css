@@ -27,6 +27,7 @@
 .NIMContainer{
     float: right;
     display: inline-block;
+    margin-top: -2vh;
 }
 
 .container:hover{
