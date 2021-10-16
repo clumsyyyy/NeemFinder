@@ -1,16 +1,33 @@
-import React from "react";
-import {generateContainer} from "./displayData.js"
+import React, { useState, useContext } from "react";
+import useSearchResult from "../hooks/SearchResult";
+import { MahasiswaContext } from "./MahasiswaProvider";
 
+export default function SearchComponent({ onSlideEffect }) {
+  const { setMahasiswa } = useContext(MahasiswaContext);
+  const [keyword, setKeyword] = useState("");
+  const searchEngine = useSearchResult();
 
-export default function SearchComponent() {
+  const onSearch = () => {
+    onSlideEffect && onSlideEffect();
+    setMahasiswa(searchEngine(keyword));
+  };
+
   return (
     <div className="banner">
       <div className="textBox">
         <h1>NEEMFinder</h1>
         <p>(but not really)</p>
       </div>
-      <input type="text" id="queryInput" placeholder="Type NIM...."></input>
-      <button  id="searchButton" onClick = {generateContainer}>Find...</button>
+      <input
+        type="text"
+        id="queryInput"
+        placeholder="Type NIM...."
+        value={keyword}
+        onInput={({ target: { value } }) => setKeyword(value)} // Two way data binding
+      ></input>
+      <button id="searchButton" onClick={onSearch}>
+        Find...
+      </button>
     </div>
   );
 }
