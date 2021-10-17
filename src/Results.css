@@ -7,21 +7,29 @@
 
 .container{
     border-radius: 20px;
-    padding: 15px;
+    padding: 20px;
     margin: 1vw 1vh;
     width: 60vw;
     height: 10vh;
     margin: 0 auto;
     display: inline-block;
     transition: 0.3s;
+    color: #575757;
 }
 
-.container h2{
+
+.NIContainer{
     text-align: left;
     float: left;
     max-width: 50vw;
     display: inline-block;
-    padding-bottom: 10vh;
+    padding-bottom: 10vh; 
+    margin-top: -2vh;
+}
+
+.NIContainer p{
+    margin-top: -2vh;
+    font-style: italic;
 }
 
 .NIMContainer{
@@ -34,6 +42,8 @@
     color: rgb(53,134,119);
     box-shadow: 7px 10px 36px -10px rgba(53,134,119,0.59);
 }
+
+
 
 @media screen and (max-width: 1000px){
 
