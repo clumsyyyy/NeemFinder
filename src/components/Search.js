@@ -16,7 +16,6 @@ export default function SearchComponent({ onSlideEffect }) {
     <div className="banner">
       <div className="textBox">
         <h1>NEEMFinder</h1>
-        <p>(but not really)</p>
       </div>
       <input
         type="text"
