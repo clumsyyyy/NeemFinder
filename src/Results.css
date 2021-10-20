@@ -24,7 +24,7 @@
     max-width: 50vw;
     display: inline-block;
     padding-bottom: 10vh; 
-    margin-top: -2vh;
+    margin-top: -3vh;
 }
 
 .NIContainer p{
@@ -50,11 +50,16 @@
     #results{
         padding: 5vh 0;
     }
+
+    .NIContainer{
+        margin-top: -1.5vh;
+    }
     .container{
         width: 90vw;
     }
 
     .container h2{
-        max-width: 50vw;
+        font-size: 20px;
+        min-width: 95vw;
     }
 }
