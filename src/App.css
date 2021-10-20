@@ -32,13 +32,14 @@
 }
 
 #queryInput{
-  width: 50vw;
+  width: 500px;
+  height: 100px;
   height: 2vh;
   border: 3px white solid;
   font-family: "Lexend";
-  border-radius: 50px;
-  padding: 2vh 2vw;
-  font-size: 16px;
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 20px;
 }
 
 #searchButton{
@@ -64,6 +65,10 @@
   color: white;
 }
 
+#infoBox p{
+  font-size: 15px;
+  padding: 0px 10px;
+}
 @media screen and (max-width: 1000px){
   #queryInput{
     width: 80vw;
