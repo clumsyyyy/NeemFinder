@@ -5,34 +5,60 @@ export default function useSearchResult() {
   // Ini namanya Custom Hook
   const { database } = useContext(MahasiswaContext);
   return (nim) => {
-    var ident;
-    if (require("../components/data/kodeTPB.json").hasOwnProperty(nim.substr(0, 3))){
-      ident = 1;
-    } else if (require("../components/data/kodeJurusan.json").hasOwnProperty(nim.substr(0, 3))){
-      ident = 2;
-    }
-   
-    const studentData = JSON.parse(localStorage.getItem("studentData"));
-
-    for(let i = 0; i < studentData.length; i++){
-      var found = false;
+    var temp = [];
+    if (!isNaN(nim) && (nim !== "") ){ // misalnya query nya angka
+      var ident;
+      if (require("../components/data/kodeTPB.json").hasOwnProperty(nim.substr(0, 3))){
+        ident = 1;
+      } else if (require("../components/data/kodeJurusan.json").hasOwnProperty(nim.substr(0, 3))){
+        ident = 2;
+      }
       
-      var matchedNIM = studentData[i][ident] && studentData[i][ident].substr(0, nim.length);
-      if (matchedNIM == nim && database.length != 0){
-        var j = 0;
-        while (!found && j < database.length){
-          if (database[j][ident] === studentData[i][ident]){
-            found = true;
+      for(let i = 0; i < database.length; i++){
+        var found = false;
+        var matchedNIM = database[i][ident].substr(0, nim.length);
+        if (matchedNIM === nim){
+          var j = 0;
+          while (!found && j < temp.length){
+            if (temp[j][ident] === database[i][ident]){
+              found = true;
+            }
+            j++;
+          }  
+          if (found === false) {
+            temp.push(database[i]);
           }
-          j++;
-        }  
-        if (found === false) {
-          database.push(studentData[i]);
+        }
+      }
+    } else if (typeof(nim) === 'string' && (nim !== "")) { 
+      for(let i = 0; i < database.length; i++){
+        var found = false;
+        var j = 0
+        var splittedName = database[i][0]
+        if (!nim.includes(" ")){
+          splittedName = splittedName.split(" ");
+        }
+
+        if (!nim.includes(" ")){
+          while (!found && j < splittedName.length){
+            var splittedSubName = splittedName[j].substr(0, nim.length);
+            if (splittedSubName.toLowerCase() === nim.toLowerCase()){
+              found = true
+            }
+            j++;
+          }
+          if (found === true){
+            temp.push(database[i]);
+          }
+        } else {
+          if (splittedName.substr(0, nim.length).toLowerCase() === nim.toLowerCase()){
+            temp.push(database[i]);
+          }
         }
         
       }
-    }
-    console.log(database);
-    return database; // Nanti disini logik buat searchingnya
+
+    } 
+    return temp; // Nanti disini logik buat searchingnya
   };
 }
