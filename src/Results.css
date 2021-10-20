@@ -45,6 +45,7 @@
 
 
 
+
 @media screen and (max-width: 1000px){
 
     #results{
@@ -60,6 +61,7 @@
 
     .container h2{
         font-size: 20px;
-        min-width: 95vw;
+        min-width: 70vw;
+        overflow-x: hidden;
     }
 }
