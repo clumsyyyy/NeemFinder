@@ -29,6 +29,9 @@ export default function SearchComponent({ onSlideEffect }) {
           onSearch();
         }}}     
       ></input>
+      <div id = "infoBox">
+        <p>Panjang NIM minimal 3 karakter (untuk jurusan) dan maksimal 8 karakter.</p>
+      </div>
       <button id="searchButton" onClick={onSearch}>
         Find...
       </button>
