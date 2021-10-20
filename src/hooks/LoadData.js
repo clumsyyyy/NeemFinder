@@ -3,7 +3,7 @@ import { MahasiswaContext } from "../components/MahasiswaProvider";
 
 // Forking dari datanya Ka MK
 const DOWNLOAD_URL =
-  "https://raw.githubusercontent.com/mkamadeus/nim-finder-v2/main/src/json/data_13_21.json";
+  "https://cdn.jsdelivr.net/gh/clumsyyyy/neemfinder/src/components/data/data.json";
 
 export function useLoadLocalData() {
   const { setDatabase } = useContext(MahasiswaContext);
