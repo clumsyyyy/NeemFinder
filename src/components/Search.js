@@ -22,9 +22,12 @@ export default function SearchComponent({ onSlideEffect }) {
       <input
         type="text"
         id="queryInput"
-        placeholder="Type NIM...."
+        placeholder="Type NIM / Name...."
         value={keyword}
         onInput={({ target: { value } }) => setKeyword(value)} // Two way data binding
+        onKeyPress = {event => {if (event.key === "Enter") {
+          onSearch();
+        }}}     
       ></input>
       <button id="searchButton" onClick={onSearch}>
         Find...
