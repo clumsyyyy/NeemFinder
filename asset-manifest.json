@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/neemfinder/static/css/main.524d60f0.chunk.css",
-    "main.js": "/neemfinder/static/js/main.b2d536ca.chunk.js",
-    "main.js.map": "/neemfinder/static/js/main.b2d536ca.chunk.js.map",
+    "main.js": "/neemfinder/static/js/main.0535cf90.chunk.js",
+    "main.js.map": "/neemfinder/static/js/main.0535cf90.chunk.js.map",
     "runtime-main.js": "/neemfinder/static/js/runtime-main.4c55a479.js",
     "runtime-main.js.map": "/neemfinder/static/js/runtime-main.4c55a479.js.map",
     "static/js/2.4bc16855.chunk.js": "/neemfinder/static/js/2.4bc16855.chunk.js",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.4c55a479.js",
     "static/js/2.4bc16855.chunk.js",
     "static/css/main.524d60f0.chunk.css",
-    "static/js/main.b2d536ca.chunk.js"
+    "static/js/main.0535cf90.chunk.js"
   ]
 }
