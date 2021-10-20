@@ -17,15 +17,10 @@ function App() {
     // eslint-disable-next-line
   }, []);
 
-  const onSlide = () => {
-    document.getElementById("results").scrollIntoView({ behavior: "smooth" });
-
-    // Buat ngeslidenya
-  };
 
   return (
     <div className="App">
-      <Search onSlideEffect={onSlide} />
+      <Search />
       <Results />
     </div>
   );
