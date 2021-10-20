@@ -50,8 +50,8 @@ export default function useSearchResult() {
 
         if (!nim.includes(" ")) {
           while (!found && j < splittedName.length) {
-            var splittedSubName = splittedName[j].substr(0, nim.length);
-            if (splittedSubName.toLowerCase() === nim.toLowerCase()) {
+           
+            if (splittedName[j].toLowerCase().includes(nim.toLowerCase())) {
               found = true;
             }
             j++;
@@ -61,8 +61,7 @@ export default function useSearchResult() {
           }
         } else {
           if (
-            splittedName.substr(0, nim.length).toLowerCase() ===
-            nim.toLowerCase()
+            splittedName.toLowerCase().includes(nim.toLowerCase())
           ) {
             temp.push(database[i]);
           }
