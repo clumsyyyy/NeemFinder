@@ -6,7 +6,7 @@ export default function useSearchResult() {
   const { database } = useContext(MahasiswaContext);
   return (nim) => {
     var temp = [];
-    if (!isNaN(nim) && nim !== "") {
+    if (!isNaN(nim) && nim !== "" && nim.length >= 3) {
       // misalnya query nya angka
       var ident;
       if (
