@@ -6,59 +6,69 @@ export default function useSearchResult() {
   const { database } = useContext(MahasiswaContext);
   return (nim) => {
     var temp = [];
-    if (!isNaN(nim) && (nim !== "") ){ // misalnya query nya angka
+    if (!isNaN(nim) && nim !== "") {
+      // misalnya query nya angka
       var ident;
-      if (require("../components/data/kodeTPB.json").hasOwnProperty(nim.substr(0, 3))){
+      if (
+        require("../components/data/kodeTPB.json").hasOwnProperty(
+          nim.substr(0, 3)
+        )
+      ) {
         ident = 1;
-      } else if (require("../components/data/kodeJurusan.json").hasOwnProperty(nim.substr(0, 3))){
+      } else if (
+        require("../components/data/kodeJurusan.json").hasOwnProperty(
+          nim.substr(0, 3)
+        )
+      ) {
         ident = 2;
       }
-      
-      for(let i = 0; i < database.length; i++){
+
+      for (let i = 0; i < database.length; i++) {
         var found = false;
         var matchedNIM = database[i][ident].substr(0, nim.length);
-        if (matchedNIM === nim){
+        if (matchedNIM === nim) {
           var j = 0;
-          while (!found && j < temp.length){
-            if (temp[j][ident] === database[i][ident]){
+          while (!found && j < temp.length) {
+            if (temp[j][ident] === database[i][ident]) {
               found = true;
             }
             j++;
-          }  
+          }
           if (found === false) {
             temp.push(database[i]);
           }
         }
       }
-    } else if (typeof(nim) === 'string' && (nim !== "")) { 
-      for(let i = 0; i < database.length; i++){
+    } else if (typeof nim === "string" && nim !== "") {
+      for (let i = 0; i < database.length; i++) {
         var found = false;
-        var j = 0
-        var splittedName = database[i][0]
-        if (!nim.includes(" ")){
+        var j = 0;
+        var splittedName = database[i][0];
+        if (!nim.includes(" ")) {
           splittedName = splittedName.split(" ");
         }
 
-        if (!nim.includes(" ")){
-          while (!found && j < splittedName.length){
+        if (!nim.includes(" ")) {
+          while (!found && j < splittedName.length) {
             var splittedSubName = splittedName[j].substr(0, nim.length);
-            if (splittedSubName.toLowerCase() === nim.toLowerCase()){
-              found = true
+            if (splittedSubName.toLowerCase() === nim.toLowerCase()) {
+              found = true;
             }
             j++;
           }
-          if (found === true){
+          if (found === true) {
             temp.push(database[i]);
           }
         } else {
-          if (splittedName.substr(0, nim.length).toLowerCase() === nim.toLowerCase()){
+          if (
+            splittedName.substr(0, nim.length).toLowerCase() ===
+            nim.toLowerCase()
+          ) {
             temp.push(database[i]);
           }
         }
-        
       }
-
-    } 
+    }
     return temp; // Nanti disini logik buat searchingnya
   };
 }

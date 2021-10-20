@@ -1,6 +1,10 @@
 import { useContext } from "react";
 import { MahasiswaContext } from "../components/MahasiswaProvider";
 
+// Forking dari datanya Ka MK
+const DOWNLOAD_URL =
+  "https://raw.githubusercontent.com/mkamadeus/nim-finder-v2/main/src/json/data_13_21.json";
+
 export function useLoadLocalData() {
   const { setDatabase } = useContext(MahasiswaContext);
 
@@ -21,26 +25,28 @@ export function useLoadLocalData() {
 
 export async function DownloadDatabase() {
   // Dummy data
-    var tempData = require("../components/data/data.json");
-    var i = 0;
-    for(i = 0; i < tempData.length; i++){
-      var kode = "";
-      var data = "";
-      if (tempData[i].length === 2){
-        tempData[i].push("-");
-        kode = tempData[i][1].substr(0, 3);
-        data = "TPB "+ require("../components/data/kodeTPB.json")[parseInt(kode)];
-  
-      } else if (tempData[i].length === 3){
-        kode = tempData[i][2].substr(0, 3);
-        data = require("../components/data/kodeJurusan.json")[parseInt(kode)];
-      }
-  
-      tempData[i].push(data);
+  // var tempData = require("../components/data/data.json");
+  const downloadedData = await fetch(DOWNLOAD_URL);
+  const tempData = await downloadedData.json();
+
+  var i = 0;
+  for (i = 0; i < tempData.length; i++) {
+    var kode = "";
+    var data = "";
+    if (tempData[i].length === 2) {
+      tempData[i].push("-");
+      kode = tempData[i][1].substr(0, 3);
+      data =
+        "TPB " + require("../components/data/kodeTPB.json")[parseInt(kode)];
+    } else if (tempData[i].length === 3) {
+      kode = tempData[i][2].substr(0, 3);
+      data = require("../components/data/kodeJurusan.json")[parseInt(kode)];
     }
-  
-    return tempData;
-  
+
+    tempData[i].push(data);
+  }
+
+  return tempData;
 }
 
 export function useLoadData() {
@@ -54,7 +60,7 @@ export function useLoadData() {
       localStorage.setItem("database", JSON.stringify(data));
       setDatabase(data);
     }
-    
+
     return true;
   };
 }
