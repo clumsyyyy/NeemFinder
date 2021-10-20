@@ -9,6 +9,7 @@ export default function SearchComponent({ onSlideEffect }) {
 
   const onSearch = () => {
     onSlideEffect && onSlideEffect();
+    document.getElementById("results").removeAttribute("hidden");
     setMahasiswa(searchEngine(keyword));
   };
 
