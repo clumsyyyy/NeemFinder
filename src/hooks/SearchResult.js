@@ -41,8 +41,8 @@ export default function useSearchResult() {
       }
     } else if (typeof nim === "string" && nim !== "") {
       for (let i = 0; i < database.length; i++) {
-        var found = false;
-        var j = 0;
+        let found = false;
+        let j = 0;
         var splittedName = database[i][0];
         if (!nim.includes(" ")) {
           splittedName = splittedName.split(" ");
