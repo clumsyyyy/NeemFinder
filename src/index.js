@@ -4,11 +4,14 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { MahasiswaProvider } from "./components/MahasiswaProvider";
+import { ThemeProvider } from "./components/ThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <MahasiswaProvider>
-      <App />
+      <ThemeProvider>
+        <App />
+      </ThemeProvider>
     </MahasiswaProvider>
   </React.StrictMode>,
   document.getElementById("root")

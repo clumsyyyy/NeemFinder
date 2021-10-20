@@ -1,65 +1,70 @@
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap');
-#results{
-    align-items: center;
-    font-family: Lexend;
-    padding: 20px;
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@500&display=swap");
+#results {
+  align-items: center;
+  font-family: Lexend;
+  padding: 20px;
 }
 
-.container{
-    border-radius: 20px;
-    padding: 20px;
-    margin: 1vw 1vh;
-    width: 60vw;
-    height: 10vh;
-    margin: 0 auto;
-    display: inline-block;
-    transition: 0.3s;
-    color: #575757;
+.container {
+  border-radius: 20px;
+  padding: 20px;
+  margin: 1vw 1vh;
+  width: 60vw;
+  height: 10vh;
+  margin: 0 auto;
+  display: inline-block;
+  transition: 0.3s;
+  color: #575757;
 }
 
-
-.NIContainer{
-    text-align: left;
-    float: left;
-    max-width: 50vw;
-    display: inline-block;
-    padding-bottom: 10vh; 
-    margin-top: -3vh;
+.NIContainer {
+  text-align: left;
+  float: left;
+  max-width: 50vw;
+  display: inline-block;
+  padding-bottom: 10vh;
+  margin-top: -3vh;
 }
 
-.NIContainer p{
-    margin-top: -2vh;
-    font-style: italic;
+.NIContainer p {
+  margin-top: -2vh;
+  font-style: italic;
 }
 
-.NIMContainer{
-    float: right;
-    display: inline-block;
-    margin-top: -2vh;
+.NIMContainer {
+  float: right;
+  display: inline-block;
+  margin-top: -2vh;
 }
 
-.container:hover{
-    color: rgb(53,134,119);
-    box-shadow: 7px 10px 36px -10px rgba(53,134,119,0.59);
+.container:hover {
+  color: rgb(53, 134, 119);
+  box-shadow: 7px 10px 36px -10px rgba(53, 134, 119, 0.59);
 }
 
+.dark .container {
+  color: rgb(199, 199, 199);
+}
 
+.dark .container:hover {
+  color: white;
+  box-shadow: 7px 10px 36px -10px rgb(105, 105, 105);
+}
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
+  #results {
+    padding: 5vh 0;
+  }
 
-    #results{
-        padding: 5vh 0;
-    }
+  .NIContainer {
+    margin-top: -1.5vh;
+  }
+  .container {
+    width: 90vw;
+  }
 
-    .NIContainer{
-        margin-top: -1.5vh;
-    }
-    .container{
-        width: 90vw;
-    }
-
-    .container h2{
-        font-size: 20px;
-        min-width: 95vw;
-    }
+  .container h2 {
+    font-size: 20px;
+    min-width: 95vw;
+  }
 }
